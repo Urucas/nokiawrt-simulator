@@ -7,16 +7,23 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);    
     ui->webView->load(QUrl("./index.html"));
-    ui->webView->page()->settings()->setAttribute(QWebSettings::LocalContentCanAccessRemoteUrls, true);
 
+    ui->webView->page()->settings()->setAttribute(QWebSettings::LocalContentCanAccessRemoteUrls, true);
     ui->webView->page()->settings()->setAttribute(QWebSettings::DeveloperExtrasEnabled, true);
     ui->webView->page()->settings()->setAttribute(QWebSettings::JavascriptEnabled, true);
+
+//  android size
+    ui->webView->setGeometry(QRect(0,0, 480, 800));
+    this->setGeometry(QRect(10,10, 480, 800));
+
+//  nokia size
+//    ui->webView->setGeometry(QRect(0,0, 360, 640));
+//    this->setGeometry(QRect(10,10, 360, 640));
 
     /*
     ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Vertical, Qt::ScrollBarAlwaysOff);
     ui->webView->page()->mainFrame()->setScrollBarPolicy(Qt::Horizontal, Qt::ScrollBarAlwaysOff);
     */
-    this->setGeometry(QRect(10,10, 360, 640));
 
     inspector = new QWebInspector;
     inspector->setPage(ui->webView->page());
