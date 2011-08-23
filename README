@@ -1,0 +1,3 @@
+Qt simulator for testing Nokia WRT widgets(or js plugins), allowing browser cross-domain access and showing the developer console.
+It will open ./index.html file on the same root dir as the custom js project.
+
